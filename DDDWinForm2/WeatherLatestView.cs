@@ -19,7 +19,15 @@ namespace DDDWinForm2
 
         private void LatestButton_Click(object sender, EventArgs e)
         {
-
+            string sql = @"
+select DataDate,
+       Condition,
+       Temperature
+from Weather
+where AreaId = @AreaId
+order by DataDate desc
+LIMIT 1
+"
         }
     }
 }
