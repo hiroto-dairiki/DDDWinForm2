@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DDDWinForm2.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -48,15 +49,9 @@ LIMIT 1
                 DataDateLabel.Text = dt.Rows[0]["DataDate"].ToString();
                 ConditionLabel.Text = dt.Rows[0]["Condition"].ToString();
                 TemperatureLabel.Text =
-                    RoundString(Convert.ToSingle(dt.Rows[0]["Temperature"]), 2) + "℃";
-
+                 CommonFunc.RoundString(
+                     Convert.ToSingle(dt.Rows[0]["Temperature"]), CommonConst.TemperatureDecimalPoint) + CommonConst.TemperatureUnitName;
             }
-        }
-
-        private string RoundString(float value, int decimalPoint)
-        {
-            var temp = Convert.ToSingle(Math.Round(value, decimalPoint));
-            return temp.ToString("F" + decimalPoint);
         }
     }
 }
