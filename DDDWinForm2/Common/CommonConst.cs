@@ -10,5 +10,6 @@ namespace DDDWinForm2.Common
     {
         public const string TemperatureUnitName = "℃";
         public const int TemperatureDecimalPoint = 2;
+        public const string ConnectionString = @"Data Source = C:\Users\itf\Desktop\DDD.db;Version=3;";
     }
 }

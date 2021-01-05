@@ -1,4 +1,5 @@
 ﻿using DDDWinForm2.Common;
+using DDDWinForm2.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ namespace DDDWinForm2
 {
     public partial class WeatherLatestView : Form
     {
-        private readonly string ConnectionString = @"Data Source = C:\Users\itf\Desktop\DDD.db;Version=3;";
+        
         public WeatherLatestView()
         {
             InitializeComponent();
@@ -22,27 +23,7 @@ namespace DDDWinForm2
 
         private void LatestButton_Click(object sender, EventArgs e)
         {
-            string sql = @"
-select DataDate,
-       Condition,
-       Temperature
-from Weather
-where AreaId = @AreaId
-order by DataDate desc
-LIMIT 1
-";
-            DataTable dt = new DataTable();
-            using (var connection = new SQLiteConnection(ConnectionString))
-            using(var command = new SQLiteCommand(sql, connection))
-            {
-                connection.Open();
-
-                command.Parameters.AddWithValue("@AreaId", this.AreaIdTextBox.Text);
-                using(var adapter = new SQLiteDataAdapter(command))
-                {
-                    adapter.Fill(dt);
-                }
-            }
+            var dt = WeatherSQLite.GetLatest(Convert.ToInt32(AreaIdTextBox.Text));
 
             if (dt.Rows.Count > 0)
             {
