@@ -34,7 +34,7 @@ namespace DDDWinForm2
             this.label4 = new System.Windows.Forms.Label();
             this.DataDateLabel = new System.Windows.Forms.Label();
             this.ConditionLabel = new System.Windows.Forms.Label();
-            this.TemperatureButton = new System.Windows.Forms.Label();
+            this.TemperatureLabel = new System.Windows.Forms.Label();
             this.AreaIdTextBox = new System.Windows.Forms.TextBox();
             this.LatestButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -85,14 +85,14 @@ namespace DDDWinForm2
             this.ConditionLabel.TabIndex = 5;
             this.ConditionLabel.Text = "label6";
             // 
-            // TemperatureButton
+            // TemperatureLabel
             // 
-            this.TemperatureButton.AutoSize = true;
-            this.TemperatureButton.Location = new System.Drawing.Point(178, 252);
-            this.TemperatureButton.Name = "TemperatureButton";
-            this.TemperatureButton.Size = new System.Drawing.Size(52, 18);
-            this.TemperatureButton.TabIndex = 6;
-            this.TemperatureButton.Text = "label7";
+            this.TemperatureLabel.AutoSize = true;
+            this.TemperatureLabel.Location = new System.Drawing.Point(178, 252);
+            this.TemperatureLabel.Name = "TemperatureLabel";
+            this.TemperatureLabel.Size = new System.Drawing.Size(52, 18);
+            this.TemperatureLabel.TabIndex = 6;
+            this.TemperatureLabel.Text = "label7";
             // 
             // AreaIdTextBox
             // 
@@ -127,7 +127,7 @@ namespace DDDWinForm2
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.LatestButton);
             this.Controls.Add(this.AreaIdTextBox);
-            this.Controls.Add(this.TemperatureButton);
+            this.Controls.Add(this.TemperatureLabel);
             this.Controls.Add(this.ConditionLabel);
             this.Controls.Add(this.DataDateLabel);
             this.Controls.Add(this.label4);
@@ -148,7 +148,7 @@ namespace DDDWinForm2
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label DataDateLabel;
         private System.Windows.Forms.Label ConditionLabel;
-        private System.Windows.Forms.Label TemperatureButton;
+        private System.Windows.Forms.Label TemperatureLabel;
         private System.Windows.Forms.TextBox AreaIdTextBox;
         private System.Windows.Forms.Button LatestButton;
         private System.Windows.Forms.Label label3;

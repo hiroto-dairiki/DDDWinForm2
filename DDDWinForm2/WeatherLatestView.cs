@@ -31,7 +31,26 @@ order by DataDate desc
 LIMIT 1
 ";
             DataTable dt = new DataTable();
-            using(var connection = new SQLiteConnection()
+            using (var connection = new SQLiteConnection(ConnectionString))
+            using(var command = new SQLiteCommand(sql, connection))
+            {
+                connection.Open();
+
+                command.Parameters.AddWithValue("@AreaId", this.AreaIdTextBox.Text);
+                using(var adapter = new SQLiteDataAdapter(command))
+                {
+                    adapter.Fill(dt);
+                }
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                DataDateLabel.Text = dt.Rows[0]["DataDate"].ToString();
+                ConditionLabel.Text = dt.Rows[0]["Condition"].ToString();
+                TemperatureLabel.Text =
+                    Math.Round(Convert.ToSingle(dt.Rows[0]["Temperature"]), 2) + "℃";
+
+            }
         }
     }
 }
